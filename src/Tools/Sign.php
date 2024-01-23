@@ -5,11 +5,12 @@ namespace Midea\Api\Tools;
 use Hyperf\Codec\Json;
 use Midea\Api\Constants\MideaErrorCode;
 use Midea\Api\Exception\PayException;
+use function Hyperf\Config\config;
 
 trait Sign
 {
 
-    private string $signHost = 'http://127.0.0.1:28084';
+    private string $signHost = '';
     private string $signPath = '/rsa/sign.htm';
 
     /**
@@ -19,6 +20,7 @@ trait Sign
      */
     public function getSign(array $data): string
     {
+        $this->signHost = config('mideapay.sign_host');
         // 排序字段(升序排序)
         ksort($data);
         // 拼接字符串

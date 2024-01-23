@@ -6,6 +6,7 @@ use GuzzleHttp\Exception\GuzzleException;
 use Midea\Api\Tools\Guzzle;
 use Midea\Api\Tools\Sign;
 use function Hyperf\Support\make;
+use function Hyperf\Config\config;
 
 /**
  * Class BaseClient
@@ -18,7 +19,6 @@ class BaseClient
 
     protected Container $app;
     public string $host = 'https://in.mideaepay.com';
-    public string $hostTest = 'https://in.mideaepayuat.com';
     public string $url = '/gateway.htm';
     public string $service = '';
 
@@ -29,8 +29,10 @@ class BaseClient
      */
     public function __construct(Container $app, string $service)
     {
+        $payApp = config('mideapay.pay_app');
         $this->app = $app;
         $this->service = $service;
+        $this->host = $payApp == 'dev' ? 'https://in.mideaepayuat.com' : 'https://in.mideaepay.com';
     }
 
     /**
@@ -59,7 +61,7 @@ class BaseClient
         ## 设置请求参数
         $client->setHttpHandle(
             [
-                'base_uri' => $this->hostTest,
+                'base_uri' => $this->host,
                 'timeout' => $timeout,
                 'verify' => false,
             ]
