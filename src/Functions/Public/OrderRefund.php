@@ -2,6 +2,7 @@
 
 namespace Midea\Api\Functions\Public;
 
+use GuzzleHttp\Exception\GuzzleException;
 use Midea\Api\Core\BaseClient;
 
 /**
@@ -13,23 +14,11 @@ class OrderRefund extends BaseClient
      * 统一退款
      * @param array $params
      * @return array
+     * @throws GuzzleException
      */
     public function refund(array $params): array
     {
-        $params['op_user_id'] = $this->app->mchId;
-        return $this->curlRequest($params, 'post');
-    }
-
-    /**
-     * 统一退款查询
-     * @param array $params
-     * @return array
-     */
-    public function find(array $params): array
-    {
-        ## 设置退款查询服务接口
-        $this->service = 'unified.trade.refundquery';
-        ## 开始查询
+        $this->app->baseParams['version'] = '3.1.0';
         return $this->curlRequest($params, 'post');
     }
 }

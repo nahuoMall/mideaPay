@@ -5,6 +5,7 @@ namespace Midea\Api\Provider;
 use Midea\Api\Core\Container;
 use Midea\Api\Functions\Alipay\AppPayShortcut;
 use Midea\Api\Functions\Public\OrderDetail;
+use Midea\Api\Functions\Public\OrderRefund;
 use Midea\Api\Interfaces\Provider;
 
 /**
@@ -25,6 +26,9 @@ class AlipayProvider implements Provider
         };
         $container['search'] = function ($container) {
             return new OrderDetail($container, 'trade_query');
+        };
+        $container['refund'] = function ($container) {
+            return new OrderRefund($container, 'trade_refund');
         };
     }
 }
