@@ -32,7 +32,7 @@ class BaseClient
         $payApp = config('mideapay.pay_app');
         $this->app = $app;
         $this->service = $service;
-        $this->host = $payApp == 'dev' ? 'https://in.mideaepayuat.com' : 'https://in.mideaepay.com';
+        $this->host = $payApp != 'prod' ? 'https://in.mideaepayuat.com' : 'https://in.mideaepay.com';
     }
 
     /**
