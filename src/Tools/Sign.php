@@ -20,7 +20,7 @@ trait Sign
      */
     public function getSign(array $data): string
     {
-        $this->signHost = config('mideapay.sign_host');
+        $this->signHost = config('pay.mideapay.sign_host');
         // 排序字段(升序排序)
         ksort($data);
         // 拼接字符串
