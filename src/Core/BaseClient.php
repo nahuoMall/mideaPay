@@ -3,6 +3,8 @@
 namespace Midea\Api\Core;
 
 use GuzzleHttp\Exception\GuzzleException;
+use Midea\Api\Constants\MideaErrorCode;
+use Midea\Api\Exception\PayException;
 use Midea\Api\Tools\Guzzle;
 use Midea\Api\Tools\Sign;
 use function Hyperf\Support\make;
@@ -33,6 +35,26 @@ class BaseClient
         $this->app = $app;
         $this->service = $service;
         $this->host = $payApp != 'prod' ? 'https://in.mideaepayuat.com' : 'https://in.mideaepay.com';
+    }
+
+    /**
+     * @return string
+     * @throws GuzzleException
+     */
+    public function getToken(string $time, string $imei, string $loginName): string
+    {
+        $this->service = 'auth_token';
+
+        $params = [
+            'terminal_type' => 'MOBILE',
+            'login_name' => $loginName,
+            'token_time' => $time,
+            'ip' => '127.0.0.1',
+            'session_id' => $imei
+        ];
+
+        $result = $this->curlRequest($params, 'post');
+        return $result['token'] ?? '';
     }
 
     /**

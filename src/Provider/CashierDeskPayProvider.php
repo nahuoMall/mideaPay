@@ -4,13 +4,16 @@ namespace Midea\Api\Provider;
 
 use Midea\Api\Core\Container;
 use Midea\Api\Functions\Alipay\AppPayShortcut;
+use Midea\Api\Functions\Cashier\CashierPayShortcut;
+use Midea\Api\Functions\Public\OrderDetail;
+use Midea\Api\Functions\Public\OrderRefund;
 use Midea\Api\Interfaces\Provider;
 
 /**
  * Class AlipayProvider
  * @package Midea\Api\Provider
  */
-class AlipayProvider implements Provider
+class CashierDeskPayProvider implements Provider
 {
 
     /**
@@ -19,8 +22,8 @@ class AlipayProvider implements Provider
      */
     public function serviceProvider(Container $container): void
     {
-        $container['alipay_app'] = function ($container) {
-            return new AppPayShortcut($container, 'trade_pay_alipay');
+        $container['cashier_app'] = function ($container) {
+            return new CashierPayShortcut($container, 'trade_pay_cashier');
         };
     }
 }

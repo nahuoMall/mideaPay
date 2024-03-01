@@ -10,6 +10,7 @@ use Midea\Api\Constants\MideaErrorCode;
 use Hyperf\Guzzle\CoroutineHandler;
 use Psr\Http\Message\ResponseInterface;
 use Midea\Api\Exception\PayException;
+use function Hyperf\Support\build_sql;
 
 class Guzzle
 {
@@ -66,12 +67,15 @@ class Guzzle
     private function getResult(ResponseInterface $response): array
     {
         $result = $response->getBody()->getContents();
-
         $statusCode = $response->getStatusCode();
 
-        $result = Json::decode($result);
+        if(str_contains($result, '{"') && str_contains($result, '"}')) {
+            $result = Json::decode($result);
+        } else {
+            return ['result' => $result];
+        }
 
-         logger('mideapay')->info('MideaPay POST RESULT', $result);
+         logger('mideapay')->info('MideaPay POST RESULT', ['result' => $result]);
 
         if (empty($result) || $statusCode != 200) {
             throw new PayException(MideaErrorCode::ORDER_SERVICE_ERROR, '请求美的支付服务错误');
