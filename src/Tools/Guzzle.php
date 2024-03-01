@@ -71,18 +71,22 @@ class Guzzle
 
         if(str_contains($result, '{"') && str_contains($result, '"}')) {
             $result = Json::decode($result);
+
+            logger('mideapay')->info('MideaPay POST RESULT', ['result' => $result]);
+
+            if (empty($result) || $statusCode != 200) {
+                throw new PayException(MideaErrorCode::ORDER_SERVICE_ERROR, '请求美的支付服务错误');
+            }
+
+            if ($result['result_code'] != 1001) {
+                throw new PayException(MideaErrorCode::PAY_POST_ERROR, !empty($result['result_info']) && is_string($result['result_info']) ? $result['result_info'] : null);
+            }
+
         } else {
+
+            logger('mideapay')->info('MideaPay POST RESULT', ['result' => $result]);
+
             return ['result' => $result];
-        }
-
-         logger('mideapay')->info('MideaPay POST RESULT', ['result' => $result]);
-
-        if (empty($result) || $statusCode != 200) {
-            throw new PayException(MideaErrorCode::ORDER_SERVICE_ERROR, '请求美的支付服务错误');
-        }
-
-        if ($result['result_code'] != 1001) {
-            throw new PayException(MideaErrorCode::PAY_POST_ERROR, !empty($result['result_info']) && is_string($result['result_info']) ? $result['result_info'] : null);
         }
 
         return $result;
