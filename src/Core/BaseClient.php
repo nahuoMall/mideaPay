@@ -53,6 +53,8 @@ class BaseClient
             'session_id' => $imei
         ];
 
+        logger('mideapay')->info('MideaPay TOKEN POST', $params);
+
         $result = $this->curlRequest($params, 'post');
         return $result['token'] ?? '';
     }
