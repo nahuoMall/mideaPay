@@ -21,7 +21,7 @@ class CashierPayShortcut extends BaseClient
     {
         // 请求token
         $imei = uniqid();
-        $loginName = '131' . rand(1, 9) . '22' . rand(1, 9) . '5249';
+        $loginName = '13122255249';
         $time = date('YmdHis');
         $params['token'] = $this->getToken($time, $imei, $loginName);
         $params['token_time'] = $time;
