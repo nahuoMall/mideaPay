@@ -49,7 +49,7 @@ class BaseClient
             'terminal_type' => 'MOBILE',
             'login_name' => $loginName,
             'token_time' => $time,
-            'ip' => '127.0.0.1',
+            'ip' => getClientIp(),
             'session_id' => $imei
         ];
 
