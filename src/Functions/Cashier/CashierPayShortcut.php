@@ -21,14 +21,13 @@ class CashierPayShortcut extends BaseClient
     {
         // 请求token
         $imei = uniqid();
-        $loginName = '13122255249';
+        $loginName = $params['payer_login_name'] ?? '13122255249';
         $time = date('YmdHis');
         $params['token'] = $this->getToken($time, $imei, $loginName);
         $params['token_time'] = $time;
         $params['terminal_type'] = 'MOBILE';
         $params['payer_login_name'] = $loginName;
         $params['session_id'] = $imei;
-
         $this->service = 'trade_pay_cashier';
 
         return $this->curlRequest($params, 'post');
