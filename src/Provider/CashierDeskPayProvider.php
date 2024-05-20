@@ -3,10 +3,7 @@
 namespace Midea\Api\Provider;
 
 use Midea\Api\Core\Container;
-use Midea\Api\Functions\Alipay\AppPayShortcut;
 use Midea\Api\Functions\Cashier\CashierPayShortcut;
-use Midea\Api\Functions\Public\OrderDetail;
-use Midea\Api\Functions\Public\OrderRefund;
 use Midea\Api\Interfaces\Provider;
 
 /**

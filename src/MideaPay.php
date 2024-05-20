@@ -8,7 +8,7 @@ use Midea\Api\Provider\SearchProvider;
 /**
  * Class Application
  */
-class Alipay extends ContainerBase
+class MideaPay extends ContainerBase
 {
     /**
      * 服务提供者
