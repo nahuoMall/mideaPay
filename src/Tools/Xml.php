@@ -1,6 +1,6 @@
 <?php
 
-namespace Midea\Api\Tools;
+namespace Media\Api\Tools;
 
 use Mtownsend\XmlToArray\XmlToArray;
 use Spatie\ArrayToXml\ArrayToXml;

@@ -1,8 +1,8 @@
 <?php
 
-namespace Midea\Api\Interfaces;
+namespace Media\Api\Interfaces;
 
-use Midea\Api\Core\Container;
+use Media\Api\Core\Container;
 
 /**
  * Interface Provider

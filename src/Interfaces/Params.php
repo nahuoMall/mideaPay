@@ -1,6 +1,6 @@
 <?php
 
-namespace Midea\Api\Interfaces;
+namespace Media\Api\Interfaces;
 
 interface Params
 {

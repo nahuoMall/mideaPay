@@ -1,9 +1,9 @@
 <?php
 
-namespace Midea\Api\Functions\Cashier;
+namespace Media\Api\Functions\Cashier;
 
 use GuzzleHttp\Exception\GuzzleException;
-use Midea\Api\Core\BaseClient;
+use Media\Api\Core\BaseClient;
 
 /**
  * 订单模块

@@ -1,15 +1,15 @@
 <?php
 
-namespace Midea\Api\Tools;
+namespace Media\Api\Tools;
 
 use GuzzleHttp\Client;
 use GuzzleHttp\Exception\GuzzleException;
 use GuzzleHttp\HandlerStack;
 use Hyperf\Codec\Json;
-use Midea\Api\Constants\MideaErrorCode;
+use Media\Api\Constants\MediaErrorCode;
 use Hyperf\Guzzle\CoroutineHandler;
 use Psr\Http\Message\ResponseInterface;
-use Midea\Api\Exception\PayException;
+use Media\Api\Exception\PayException;
 use function Hyperf\Support\build_sql;
 
 class Guzzle
@@ -53,7 +53,7 @@ class Guzzle
      */
     public function sendPost(string $url, array $params): array
     {
-         logger('mideapay')->info('MideaPay POST', ['url' => $url, 'params' => $params]);
+         logger('mideapay')->info('MediaPay POST', ['url' => $url, 'params' => $params]);
 
         $result = $this->client->post($url, ['form_params' => $params]);
 
@@ -72,19 +72,19 @@ class Guzzle
         if(str_contains($result, '{"') && str_contains($result, '"}')) {
             $result = Json::decode($result);
 
-            logger('mideapay')->info('MideaPay POST RESULT', ['result' => $result]);
+            logger('mideapay')->info('MediaPay POST RESULT', ['result' => $result]);
 
             if (empty($result) || $statusCode != 200) {
-                throw new PayException(MideaErrorCode::ORDER_SERVICE_ERROR, '请求美的支付服务错误');
+                throw new PayException(MediaErrorCode::ORDER_SERVICE_ERROR, '请求美的支付服务错误');
             }
 
             if ($result['result_code'] != 1001) {
-                throw new PayException(MideaErrorCode::PAY_POST_ERROR, !empty($result['result_info']) && is_string($result['result_info']) ? $result['result_info'] : null);
+                throw new PayException(MediaErrorCode::PAY_POST_ERROR, !empty($result['result_info']) && is_string($result['result_info']) ? $result['result_info'] : null);
             }
 
         } else {
 
-            logger('mideapay')->info('MideaPay POST RESULT', ['result' => $result]);
+            logger('mideapay')->info('MediaPay POST RESULT', ['result' => $result]);
 
             return ['result' => $result];
         }

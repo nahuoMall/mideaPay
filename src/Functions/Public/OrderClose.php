@@ -1,8 +1,8 @@
 <?php
 
-namespace Midea\Api\Functions\Public;
+namespace Media\Api\Functions\Public;
 
-use Midea\Api\Core\BaseClient;
+use Media\Api\Core\BaseClient;
 
 /**
  * 关闭模块

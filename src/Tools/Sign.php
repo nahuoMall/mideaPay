@@ -1,10 +1,10 @@
 <?php
 
-namespace Midea\Api\Tools;
+namespace Media\Api\Tools;
 
 use Hyperf\Codec\Json;
-use Midea\Api\Constants\MideaErrorCode;
-use Midea\Api\Exception\PayException;
+use Media\Api\Constants\MediaErrorCode;
+use Media\Api\Exception\PayException;
 use function Hyperf\Config\config;
 
 trait Sign
@@ -43,7 +43,7 @@ trait Sign
 
         // 判定签名结果
         if($result['code'] != 1) {
-            throw new PayException(MideaErrorCode::PAY_SIGN_ERROR);
+            throw new PayException(MediaErrorCode::PAY_SIGN_ERROR);
         }
 
         return $result['sign'];

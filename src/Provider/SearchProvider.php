@@ -1,15 +1,15 @@
 <?php
 
-namespace Midea\Api\Provider;
+namespace Media\Api\Provider;
 
-use Midea\Api\Core\Container;
-use Midea\Api\Functions\Public\OrderDetail;
-use Midea\Api\Functions\Public\OrderRefund;
-use Midea\Api\Interfaces\Provider;
+use Media\Api\Core\Container;
+use Media\Api\Functions\Public\OrderDetail;
+use Media\Api\Functions\Public\OrderRefund;
+use Media\Api\Interfaces\Provider;
 
 /**
  * Class AlipayProvider
- * @package Midea\Api\Provider
+ * @package Media\Api\Provider
  */
 class SearchProvider implements Provider
 {

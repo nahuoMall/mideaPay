@@ -8,7 +8,7 @@
 
 require_once __DIR__ . '/../vendor/autoload.php';
 
-use Midea\Api\MideaPay;
+use Media\Api\MediaPay;
 use function Hyperf\Support\make;
 
 $mchId = "1010116442";
@@ -28,8 +28,8 @@ $param = [
     'risk_params' => '{"device_version":"Mi-4c","imei":"355065053311001","cpu_info":"A5","mac":"00-50-56-C0-00-08","ip":"10.16.74.58"}'
 ];
 
-/** @var MideaPay $alipayClient */
-$alipayClient = make(MideaPay::class);
+/** @var MediaPay $alipayClient */
+$alipayClient = make(MediaPay::class);
 
 ## 初始化配置
 $alipayClient->setMchId($mchId);

@@ -1,14 +1,14 @@
 <?php
-namespace Midea\Api;
+namespace Media\Api;
 
-use Midea\Api\Core\ContainerBase;
-use Midea\Api\Provider\CashierDeskPayProvider;
-use Midea\Api\Provider\SearchProvider;
+use Media\Api\Core\ContainerBase;
+use Media\Api\Provider\CashierDeskPayProvider;
+use Media\Api\Provider\SearchProvider;
 
 /**
  * Class Application
  */
-class MideaPay extends ContainerBase
+class MediaPay extends ContainerBase
 {
     /**
      * 服务提供者

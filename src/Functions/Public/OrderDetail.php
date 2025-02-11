@@ -1,9 +1,9 @@
 <?php
 
-namespace Midea\Api\Functions\Public;
+namespace Media\Api\Functions\Public;
 
 use GuzzleHttp\Exception\GuzzleException;
-use Midea\Api\Core\BaseClient;
+use Media\Api\Core\BaseClient;
 
 /**
  * 订单模块

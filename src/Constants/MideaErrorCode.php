@@ -10,13 +10,13 @@ declare(strict_types=1);
  * @license  https://github.com/hyperf/hyperf/blob/master/LICENSE
  */
 
-namespace Midea\Api\Constants;
+namespace Media\Api\Constants;
 
 use Hyperf\Constants\AbstractConstants;
 use Hyperf\Constants\Annotation\Constants;
 
 #[Constants]
-class MideaErrorCode extends AbstractConstants
+class MediaErrorCode extends AbstractConstants
 {
 
     public const SERVER_ERROR = 500;

@@ -1,18 +1,16 @@
 <?php
 
-namespace Midea\Api\Core;
+namespace Media\Api\Core;
 
 use GuzzleHttp\Exception\GuzzleException;
-use Midea\Api\Constants\MideaErrorCode;
-use Midea\Api\Exception\PayException;
-use Midea\Api\Tools\Guzzle;
-use Midea\Api\Tools\Sign;
+use Media\Api\Tools\Guzzle;
+use Media\Api\Tools\Sign;
 use function Hyperf\Support\make;
 use function Hyperf\Config\config;
 
 /**
  * Class BaseClient
- * @package Midea\Api\Core
+ * @package Media\Api\Core
  * @property BaseClient app
  */
 class BaseClient
@@ -31,13 +29,16 @@ class BaseClient
      */
     public function __construct(Container $app, string $service)
     {
-        $payApp = config('pay.mideapay.pay_app');
+        $payApp = config('pay.mediapay.pay_app');
         $this->app = $app;
         $this->service = $service;
         $this->host = $payApp != 'prod' ? 'https://in.mideaepayuat.com' : 'https://in.mideaepay.com';
     }
 
     /**
+     * @param string $time
+     * @param string $imei
+     * @param string $loginName
      * @return string
      * @throws GuzzleException
      */
@@ -53,7 +54,7 @@ class BaseClient
             'session_id' => $imei
         ];
 
-        logger('mideapay')->info('MideaPay TOKEN POST', $params);
+        logger('mediapay')->info('MediaPay TOKEN POST', $params);
 
         $result = $this->curlRequest($params, 'post');
         return $result['token'] ?? '';

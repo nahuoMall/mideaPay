@@ -1,9 +1,9 @@
 <?php
-namespace Midea\Api\Core;
+namespace Media\Api\Core;
 
 /**
  * Class Exception
- * @package Midea\Api\Core
+ * @package Media\Api\Core
  */
 class Exception extends \Exception
 {

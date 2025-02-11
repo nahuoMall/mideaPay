@@ -1,11 +1,11 @@
 <?php
 
-namespace Midea\Api\Core;
+namespace Media\Api\Core;
 
 
 /**
  * Class Container
- * @package Midea\Api\Core
+ * @package Media\Api\Core
  */
 class Container implements \ArrayAccess
 {

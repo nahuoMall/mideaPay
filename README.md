@@ -8,7 +8,7 @@ $ composer require nahuomall/mideapay -vvv
 ## Usage
 
 ```php
-        $obj = \Hyperf\Support\make(\Midea\Api\Wechat::class)
+        $obj = \Hyperf\Support\make(\Media\Api\Wechat::class)
         
         $obj->setMchId('你的商户ID');
         // app

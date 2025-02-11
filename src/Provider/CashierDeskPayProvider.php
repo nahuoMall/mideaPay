@@ -1,14 +1,14 @@
 <?php
 
-namespace Midea\Api\Provider;
+namespace Media\Api\Provider;
 
-use Midea\Api\Core\Container;
-use Midea\Api\Functions\Cashier\CashierPayShortcut;
-use Midea\Api\Interfaces\Provider;
+use Media\Api\Core\Container;
+use Media\Api\Functions\Cashier\CashierPayShortcut;
+use Media\Api\Interfaces\Provider;
 
 /**
  * Class AlipayProvider
- * @package Midea\Api\Provider
+ * @package Media\Api\Provider
  */
 class CashierDeskPayProvider implements Provider
 {

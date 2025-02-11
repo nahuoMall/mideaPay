@@ -1,6 +1,6 @@
 {
   "name": "nahuomall/mideapay",
-  "description": "Midea Pay API SDK for PHP",
+  "description": "Media Pay API SDK for PHP",
   "type": "library",
   "keywords": ["midea", "sdk", "hyperf"],
   "require": {
@@ -27,7 +27,7 @@
     "symfony/dotenv": "^v4.4.7"
   },
   "provides": [
-    "Midea\\Api\\Provider\\AlipayProvider"
+    "Media\\Api\\Provider\\AlipayProvider"
   ],
   "license": "Apache-2.0",
   "authors": [
@@ -39,7 +39,7 @@
   "minimum-stability": "stable",
   "autoload": {
     "psr-4": {
-      "Midea\\Api\\": "src/"
+      "Media\\Api\\": "src/"
     }
   },
   "extra": {
@@ -47,7 +47,7 @@
       "dev-master": "1.0-dev"
     },
     "hyperf": {
-      "config": "Midea\\Api\\ConfigProvider"
+      "config": "Media\\Api\\ConfigProvider"
     }
   }
 }
