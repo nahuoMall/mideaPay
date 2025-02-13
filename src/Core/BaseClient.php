@@ -54,7 +54,7 @@ class BaseClient
             'session_id' => $imei
         ];
 
-        logger('mediapay')->info('MediaPay TOKEN POST', $params);
+        logger('mideapay')->info('MediaPay TOKEN POST', $params);
 
         $result = $this->curlRequest($params, 'post');
         return $result['token'] ?? '';

@@ -72,7 +72,7 @@ class Guzzle
         if(str_contains($result, '{"') && str_contains($result, '"}')) {
             $result = Json::decode($result);
 
-            logger('mediapay')->info('MediaPay POST RESULT', ['result' => $result]);
+            logger('mideapay')->info('MediaPay POST RESULT', ['result' => $result]);
 
             if (empty($result) || $statusCode != 200) {
                 throw new PayException(MediaErrorCode::ORDER_SERVICE_ERROR, '请求美的支付服务错误');
@@ -84,7 +84,7 @@ class Guzzle
 
         } else {
 
-            logger('mediapay')->info('MediaPay POST RESULT', ['result' => $result]);
+            logger('mideapay')->info('MediaPay POST RESULT', ['result' => $result]);
 
             return ['result' => $result];
         }
