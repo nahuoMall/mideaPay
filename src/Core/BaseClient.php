@@ -29,7 +29,7 @@ class BaseClient
      */
     public function __construct(Container $app, string $service)
     {
-        $payApp = config('pay.mediapay.pay_app');
+        $payApp = config('pay.mideapay.pay_app');
         $this->app = $app;
         $this->service = $service;
         $this->host = $payApp != 'prod' ? 'https://in.mideaepayuat.com' : 'https://in.mideaepay.com';
