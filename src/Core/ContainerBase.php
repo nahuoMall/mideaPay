@@ -13,7 +13,6 @@ class ContainerBase extends Container
     public string $mchId = '';
     public string $service = '';
     public array $baseParams = [
-        'version' => '3.4.0',
         'input_charset' => 'UTF-8',
         'sign_type' => 'MD5_RSA_TW',
     ];

@@ -1,6 +1,6 @@
 <?php
 
-namespace Media\Api\Functions\Cashier;
+namespace Media\Api\Functions\Wechat;
 
 use GuzzleHttp\Exception\GuzzleException;
 use Media\Api\Core\BaseClient;
@@ -8,7 +8,7 @@ use Media\Api\Core\BaseClient;
 /**
  * 订单模块
  */
-class CashierPayShortcut extends BaseClient
+class WechatPayShortcut extends BaseClient
 {
 
     /**
@@ -26,8 +26,8 @@ class CashierPayShortcut extends BaseClient
         $params['token_time'] = $time;
         $params['terminal_type'] = 'MOBILE';
         $params['session_id'] = $imei;
-        $this->service = 'trade_pay_cashier';
-        $this->app->baseParams['version'] = '3.4.0';
+        $this->service = 'trade_pay_wechatpay';
+        $this->app->baseParams['version'] = '3.7.0';
 
         return $this->curlRequest($params, 'post');
     }

@@ -29,7 +29,7 @@ class BaseClient
      */
     public function __construct(Container $app, string $service)
     {
-        $payApp = config('pay.mideapay.pay_app');
+        $payApp = config('pay.mideapay.env');
         $this->app = $app;
         $this->service = $service;
         $this->host = $payApp != 'prod' ? 'https://in.mideaepayuat.com' : 'https://in.mideaepay.com';
@@ -78,6 +78,8 @@ class BaseClient
         ];
         ## 合并公共参数
         $data = array_merge($data, $publicParams, $this->app->baseParams);
+
+        var_dump($data);
         ## 加密内容
         $data['sign'] = self::getSign($data);
         ## 开始请求
