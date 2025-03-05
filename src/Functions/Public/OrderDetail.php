@@ -19,6 +19,7 @@ class OrderDetail extends BaseClient
      */
     public function getInfo(array $params): array
     {
+        $this->app->baseParams['version'] = '3.4.0';
         return $this->curlRequest($params, 'post');
     }
 
