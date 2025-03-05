@@ -22,6 +22,7 @@ class WechatPayShortcut extends BaseClient
         // 请求token
         $imei = uniqid();
         $time = date('YmdHis');
+        $params['payer_login_name'] = '13112255249';
         $params['token'] = $this->getToken($time, $imei, $params['payer_login_name']);
         $params['token_time'] = $time;
         $params['terminal_type'] = 'MOBILE';
