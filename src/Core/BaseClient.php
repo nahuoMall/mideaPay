@@ -78,8 +78,6 @@ class BaseClient
         ];
         ## 合并公共参数
         $data = array_merge($data, $publicParams, $this->app->baseParams);
-
-        var_dump($data);
         ## 加密内容
         $data['sign'] = self::getSign($data);
         ## 开始请求
