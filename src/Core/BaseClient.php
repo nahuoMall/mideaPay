@@ -45,6 +45,7 @@ class BaseClient
     public function getToken(string $time, string $imei, string $loginName): string
     {
         $this->service = 'auth_token';
+        $this->app->baseParams['version'] = '3.0.0';
 
         $params = [
             'terminal_type' => 'MOBILE',
