@@ -53,8 +53,6 @@ class Guzzle
      */
     public function sendPost(string $url, array $params): array
     {
-         logger('mideapay')->info('MediaPay POST', ['url' => $url, 'params' => $params]);
-
         $result = $this->client->post($url, ['form_params' => $params]);
 
         return $this->getResult($result);
@@ -72,8 +70,6 @@ class Guzzle
         if(str_contains($result, '{"') && str_contains($result, '"}')) {
             $result = Json::decode($result);
 
-            logger('mideapay')->info('MediaPay POST RESULT', ['result' => $result]);
-
             if (empty($result) || $statusCode != 200) {
                 throw new PayException(MediaErrorCode::ORDER_SERVICE_ERROR, '请求美的支付服务错误');
             }
@@ -83,8 +79,6 @@ class Guzzle
             }
 
         } else {
-
-            logger('mideapay')->info('MediaPay POST RESULT', ['result' => $result]);
 
             return ['result' => $result];
         }
